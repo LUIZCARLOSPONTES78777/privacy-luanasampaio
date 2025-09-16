@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider de Imagens</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slider-container {
+            width: 100%;
+            max-width: 800px; /* Defina o tamanho desejado */
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            margin: auto;
+        }
+        .slider {
+            display: flex;
+            width: 1000%;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide"><img src="https://elektra.vtexassets.com/arquivos/ids/11418594-1600-auto?v=638779210271500000&width=1600&height=auto&aspect=true" alt="Imagem 1"></div>
+            <div class="slide"><img src="https://elektra.vtexassets.com/arquivos/ids/11418585-800-auto?v=638779210252230000&width=800&height=auto&aspect=true" alt="Imagem 2"></div>
+            <div class="slide"><img src="https://elektra.vtexassets.com/arquivos/ids/11418586-800-auto?v=638779210254430000&width=800&height=auto&aspect=true" alt="Imagem 3"></div>
+            <div class="slide"><img src="https://elektra.vtexassets.com/arquivos/ids/11418587-800-auto?v=638779210256470000&width=800&height=auto&aspect=true" alt="Imagem 4"></div>
+            <div class="slide"><img src="https://elektra.vtexassets.com/arquivos/ids/11418588-800-auto?v=638779210258800000&width=800&height=auto&aspect=true" alt="Imagem 5"></div>
+            <div class="slide"><img src="https://elektra.vtexassets.com/arquivos/ids/11418589-800-auto?v=638779210260200000&width=800&height=auto&aspect=true" alt="Imagem 6"></div>
+            <div class="slide"><img src="https://elektra.vtexassets.com/arquivos/ids/11418590-800-auto?v=638779210262400000&width=800&height=auto&aspect=true" alt="Imagem 7"></div>
+            <div class="slide"><img src="https://elektra.vtexassets.com/arquivos/ids/11418591-800-auto?v=638779210263500000&width=800&height=auto&aspect=true" alt="Imagem 8"></div>
+            <div class="slide"><img src="https://elektra.vtexassets.com/arquivos/ids/11418592-800-auto?v=638779210267170000&width=800&height=auto&aspect=true" alt="Imagem 9"></div>
+            <div class="slide"><img src="https://elektra.vtexassets.com/arquivos/ids/11418593-800-auto?v=638779210269530000&width=800&height=auto&aspect=true" alt="Imagem 10"></div>
+        </div>
+    </div>
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll(".slide");
+        const totalSlides = slides.length;
+        
+        function nextSlide() {
+            index = (index + 1) % totalSlides;
+            document.getElementById("slider").style.transform = `translateX(-${index * 100}%)`;
+        }
+        
+        setInterval(nextSlide, 5000);
+    </script>
+</body>
+</html>
